@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body{
@@ -9,7 +10,6 @@ body{
   box-sizing: border-box;
   background-color: #000;
   color: #fff;
-  overflow: hidden;
 }
 
 .css-b62m3t-container{
@@ -31,6 +31,8 @@ body{
   border: 0;
   outline: 0;
   cursor: pointer;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 p{
@@ -79,4 +81,52 @@ pre::-webkit-scrollbar{
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #212121;
+}
+
+/* ===== DESKTOP: panels scroll independently inside fixed-height container ===== */
+@media (min-width: 768px) {
+  body {
+    overflow: hidden;
+    height: 100vh;
+  }
+
+  .main {
+    overflow: hidden;
+  }
+
+  .left {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    overflow-y: auto !important;
+  }
+}
+
+/* ===== MOBILE: body scrolls, full-width layout ===== */
+@media (max-width: 767px) {
+  body {
+    overflow-y: auto;
+    height: auto;
+  }
+
+  .css-b62m3t-container {
+    width: 100%;
+  }
+
+  .btnNormal {
+    padding: 8px 12px;
+    min-width: unset !important;
+    font-size: 13px;
+  }
+
+  pre {
+    font-size: 13px;
+  }
+
+  p > strong {
+    font-size: 16px !important;
+  }
 }
